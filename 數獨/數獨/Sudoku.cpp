@@ -16,7 +16,7 @@ Sudoku::Sudoku(int version) {
     }
 }
 
-int Sudoku::mazeAnswer(int ver,int m_r,int m_c) {
+int Sudoku::mazeAnswer(int ver, int m_r, int m_c) {
     if (ver == 0) {
         int a = 0;
         for (int i = 0; i < 9; i++) {
@@ -33,7 +33,9 @@ int Sudoku::mazeAnswer(int ver,int m_r,int m_c) {
 void Sudoku::setMaze(int row, int column, int input) {
     maze[row][column] = input;
 }
-
+int Sudoku::getMazeValue(int row, int column) {
+    return maze[row][column];
+}
 void Sudoku::print() {
 
     int a = 0;
@@ -49,7 +51,7 @@ void Sudoku::print() {
         cout << endl;
         if (i % 3 == 2) cout << " -------------" << endl;
     }
-    cout << "½Ð¿é¤J¤T­Ó¼Æ¦r [ª½±Æ] [¾î±Æ] [­n¿é¤Jªº¼Æ¦r]" << endl;
+    cout << "è«‹è¼¸å…¥ä¸‰å€‹æ•¸å­— [ç›´æŽ’] [æ©«æŽ’] [è¦è¼¸å…¥çš„æ•¸å­—] æˆ–è¼¸å…¥ 'h' ä¾†ç²å–æç¤º" << endl;
 }
 
 bool Sudoku::mazeCheck() {
@@ -61,5 +63,6 @@ bool Sudoku::mazeCheck() {
             }
         }
     }
-    
+
+
 }
