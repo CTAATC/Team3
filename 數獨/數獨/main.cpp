@@ -47,6 +47,7 @@ int main() {
     int mistakes = 0;
     char command;
 
+    //若生命數不等於0而且還有未填完的空格時繼續讓玩家輸入答案
     while (Health1.getHealth() != 0 && Sudoku1.mazeCheck() == true) {
         Health1.printHealth();
         Sudoku1.print();
