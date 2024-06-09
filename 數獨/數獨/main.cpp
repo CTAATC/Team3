@@ -37,7 +37,7 @@ int main() {
     char input_answer;
     string playerName;
     srand(time(NULL));
-    ver = rand() % 1;
+    ver = rand() % 2;
 
     Health Health1;
     Sudoku Sudoku1(ver);
