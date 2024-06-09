@@ -24,7 +24,7 @@ int calculateScore(double timeSpent, int mistakes, bool gameCompleted) {
 void giveHint(Sudoku& Sudoku1, int ver) {
     for (int i = 0; i < 9; ++i) {
         for (int j = 0; j < 9; ++j) {
-            if (Sudoku1.getMazeValue(i, j) == 0) {
+            if (Sudoku1.getMazeValue(i, j) == '.') {
                 cout << "Hint: [" << i << "][" << j << "] = " << Sudoku1.mazeAnswer(ver, i, j) << endl;
                 return;
             }
