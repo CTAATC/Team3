@@ -33,7 +33,8 @@ void giveHint(Sudoku& Sudoku1, int ver) {
 }
 
 int main() {
-    int ver, m_r, m_c, input_answer;
+    int ver, m_r, m_c;
+    char input_answer;
     string playerName;
     srand(time(NULL));
     ver = rand() % 1;
