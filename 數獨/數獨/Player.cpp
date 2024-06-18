@@ -1,47 +1,29 @@
-#include "player.h"
+#include "Player.h"
 #include <iostream>
-#include <fstream>
-#include <algorithm>
 
-// 保存玩家信息到文件
-void savePlayerInfo(const vector<PlayerInfo>& leaderboard) {
-    ofstream file("leaderboard.txt");
-    if (!file) {
-        cerr << "無法打開排行榜文件！" << endl;
-        return;
-    }
+using namespace std;
 
-    for (const auto& player : leaderboard) {
-        file << player.name << " " << player.score << endl;
-    }
+Player::Player(const string& n, int s, int h) : name(n), score(s), health(h) {}
 
-    cout << "排行榜已保存到 leaderboard.txt 文件中。" << std::endl;
+bool Player::operator<(const Player& other) const {
+    return score < other.score; // 分數高的排前面
+}
+void Player::printHealth() {
+    cout << "\nYou have " << health << " lives left." << endl;
+    cout << endl;
+}
+string Player::getName() const {
+    return name;
 }
 
-// 從文件加載排行榜
-    vector<PlayerInfo> loadLeaderboard() {
-    vector<PlayerInfo> leaderboard;
-    ifstream file("leaderboard.txt");
-    if (!file) {
-        cerr << "無法加載排行榜文件！" << endl;
-        return leaderboard;
-    }
-
-    std::string name;
-    int score;
-    while (file >> name >> score) {
-        leaderboard.push_back({ name, score });
-    }
-
-    return leaderboard;
+int Player::getScore() const {
+    return score;
 }
 
-// 顯示排行榜
-void displayLeaderboard(const vector<PlayerInfo>& leaderboard) {
-    cout << "排行榜：" << endl;
-    int rank = 1;
-    for (const auto& player : leaderboard) {
-        cout << rank << ". " << player.name << " - " << player.score << " 分" << endl;
-        rank++;
-    }
+int Player::getHealth() const {
+    return health;
+}
+
+void Player::decreaseHealth() {
+    health--;
 }
