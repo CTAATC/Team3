@@ -82,7 +82,7 @@ void Sudoku::print() {
         cout << endl;
         if (i % 3 == 2) cout << " -------------" << endl;
     }
-    cout << "請輸入三個數字 [直排] [橫排] [要輸入的數字] 或輸入 'h' 來獲取提示" << endl;
+    cout << "請輸入三個數字 [第幾橫排] [第幾直排] [要輸入的數字] 或輸入 'h' 來獲取提示" << endl;
 }
 
 bool Sudoku::mazeCheck() {
