@@ -2,6 +2,7 @@
 #include <iostream>
 using namespace std;
 
+//從主程式尋找版本放上數獨的初始值
 Sudoku::Sudoku(int version) {
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
@@ -35,6 +36,7 @@ Sudoku::Sudoku(int version) {
     }
 }
 
+//放進版本、第幾排、列並傳回該位置的答案
 char Sudoku::mazeAnswer(int ver, int m_r, int m_c) {
     if (ver == 0) {
         int a = 0;
@@ -61,12 +63,17 @@ char Sudoku::mazeAnswer(int ver, int m_r, int m_c) {
     }
 }
 
+//把輸入的正確答案放進數獨格子中
 void Sudoku::setMaze(int row, int column, char input) {
     maze[row][column] = input;
 }
+
+//
 char Sudoku::getMazeValue(int row, int column) {
     return maze[row][column];
 }
+
+//輸出目前的數獨狀況
 void Sudoku::print() {
 
     int a = 0;
@@ -85,6 +92,7 @@ void Sudoku::print() {
     cout << "請輸入三個數字 [第幾橫排] [第幾直排] [要輸入的數字] 或輸入 'h' 來獲取提示" << endl;
 }
 
+//確認是否還有未完成輸入的格子
 bool Sudoku::mazeCheck() {
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
