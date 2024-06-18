@@ -68,7 +68,7 @@ void Sudoku::setMaze(int row, int column, char input) {
     maze[row][column] = input;
 }
 
-//
+//回傳數獨中該位置的數值
 char Sudoku::getMazeValue(int row, int column) {
     return maze[row][column];
 }
