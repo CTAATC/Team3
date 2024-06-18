@@ -1,28 +1,25 @@
 #ifndef PLAYER_H
 #define PLAYER_H
+using namespace std;
 
 #include <string>
-#include <vector>
-using namespace std;
-struct PlayerInfo {
-    string name;
+
+class Player {
+private:
+     string name;
     int score;
+    int health; 
 
-    PlayerInfo(const string& n, int s) : name(n), score(s) {}
+public:
+    Player(const  string& n, int s, int h);
 
-    
-    bool operator<(const PlayerInfo& other) const {
-        return score > other.score; // 分數高的排前面
-    }
+    bool operator<(const Player& other) const;
+
+     string getName() const;
+    int getScore() const;
+    int getHealth() const;
+    void printHealth();
+    void decreaseHealth(); 
 };
 
-// 保存玩家信息
-void savePlayerInfo(const std::vector<PlayerInfo>& leaderboard);
-
-// 加載排行榜
-std::vector<PlayerInfo> loadLeaderboard();
-
-// 顯示排行榜
-void displayLeaderboard(const std::vector<PlayerInfo>& leaderboard);
-
-#endif 
+#endif // PLAYER_H
