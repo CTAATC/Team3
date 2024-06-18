@@ -2,6 +2,7 @@
 #include <iostream>
 using namespace std;
 
+//從主程式獲取版本並放入初始的數值
 Sudoku::Sudoku(int version) {
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
@@ -35,6 +36,7 @@ Sudoku::Sudoku(int version) {
     }
 }
 
+//放入版本和位置並回傳該位置的答案
 char Sudoku::mazeAnswer(int ver, int m_r, int m_c) {
     if (ver == 0) {
         int a = 0;
@@ -61,12 +63,17 @@ char Sudoku::mazeAnswer(int ver, int m_r, int m_c) {
     }
 }
 
+//將接收到的值放入位置
 void Sudoku::setMaze(int row, int column, char input) {
     maze[row][column] = input;
 }
+
+//回傳該位置的數值
 char Sudoku::getMazeValue(int row, int column) {
     return maze[row][column];
 }
+
+//輸出當前數獨的狀態
 void Sudoku::print() {
 
     int a = 0;
@@ -82,9 +89,10 @@ void Sudoku::print() {
         cout << endl;
         if (i % 3 == 2) cout << " -------------" << endl;
     }
-    cout << "請輸入三個數字 [直排] [橫排] [要輸入的數字] 或輸入 'h' 來獲取提示" << endl;
+    cout << "請輸入三個數字 [第幾橫排] [第幾直排] [要輸入的數字] 或輸入 'h' 來獲取提示" << endl;
 }
 
+//查看是否還有未填完的空格
 bool Sudoku::mazeCheck() {
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
